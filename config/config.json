@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "browse-by-index-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/browseByIndex/BrowseByIndexWebPart.js",
+          "manifest": "./src/webparts/browseByIndex/BrowseByIndexWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "BrowseByIndexWebPartStrings": "lib/webparts/browseByIndex/loc/{locale}.js"
+  }
+}
