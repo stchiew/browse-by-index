@@ -12,6 +12,7 @@ specifiers:
   '@microsoft/sp-tslint-rules': 1.13.1
   '@microsoft/sp-webpart-base': 1.13.1
   '@pnp/sp': 2.11.0
+  '@pnp/spfx-property-controls': 3.3.0
   '@types/react': 16.9.51
   '@types/react-dom': 16.9.8
   '@types/webpack-env': 1.13.1
@@ -29,6 +30,7 @@ dependencies:
   '@microsoft/sp-property-pane': 1.13.1_fb981ad68f3726d64f8884face7d1e15
   '@microsoft/sp-webpart-base': 1.13.1_fb981ad68f3726d64f8884face7d1e15
   '@pnp/sp': 2.11.0
+  '@pnp/spfx-property-controls': 3.3.0_fb981ad68f3726d64f8884face7d1e15
   office-ui-fabric-react: 7.174.1_d71069ea3ea61a1f7cb5d86912297c7e
   react: 16.13.1
   react-dom: 16.13.1_react@16.13.1
@@ -1568,16 +1570,40 @@ packages:
     deprecated: Package renamed to @opentelemetry/api, see https://github.com/open-telemetry/opentelemetry-js
     dev: true
 
+  /@pnp/common/1.3.11:
+    resolution: {integrity: sha512-RhYKcfMP+h0pAzORZRHSPPLOBB58djN/pfnorpWPjsx6ZxMqbiDqTzAtTF4m8z/mdNnxJr0Q3kwt4ImU3FjwnA==}
+    dependencies:
+      adal-angular: 1.0.17
+      tslib: 1.10.0
+    dev: false
+
   /@pnp/common/2.11.0:
     resolution: {integrity: sha512-gYaXRkwgkxhdegzhp++hIUNBlkvjYLoAtLBMvY02/WezJDKoep6X4DyWhDbWatPNatVzY2ZyRDzYlgVz+lCzHA==}
     dependencies:
       tslib: 2.3.0
     dev: false
 
+  /@pnp/logging/1.3.11:
+    resolution: {integrity: sha512-hADlIXwvF/wjee7425nFJ6NhqaWpWTJ5yg02bpwBUsiSuFqEUf+LwuAcyHQre2lMs6KyNa65FWoRQok9BlZuxA==}
+    dependencies:
+      tslib: 1.10.0
+    dev: false
+
   /@pnp/logging/2.11.0:
     resolution: {integrity: sha512-1B6wlHZo9G1g+OJe2A82AVNsF3n+lCjkEtkxTlYp8Sr8BK2KGarE7YwzF40INqbImSe6VbkuLJBVIc+hEyvDRA==}
     dependencies:
       tslib: 2.3.0
+    dev: false
+
+  /@pnp/odata/1.3.11_0735193bd073e5cc36fcb4261de894d9:
+    resolution: {integrity: sha512-yMaRiuVZRei2pkryCOqsw3ZXD2Lw30IJv136WQmQPQPOxG4cvsS9+woXkfMqbWV2KQ1evFUqVXbitIz6eDVfNA==}
+    peerDependencies:
+      '@pnp/common': 1.3.11
+      '@pnp/logging': 1.3.11
+    dependencies:
+      '@pnp/common': 1.3.11
+      '@pnp/logging': 1.3.11
+      tslib: 1.10.0
     dev: false
 
   /@pnp/odata/2.11.0:
@@ -1588,6 +1614,51 @@ packages:
       tslib: 2.3.0
     dev: false
 
+  /@pnp/sp-clientsvc/1.3.11_5ebb02c573206a4d27a8d882b140be71:
+    resolution: {integrity: sha512-eIUnmDWjizcWJzhWxAbfsxEyHF1dabkGlihnDnlcYGhtvh8BwuM67A57qc5fbxzCS59c0YU57szB1EucoNmV4A==}
+    peerDependencies:
+      '@pnp/common': 1.3.11
+      '@pnp/logging': 1.3.11
+      '@pnp/odata': 1.3.11
+      '@pnp/sp': 1.3.11
+    dependencies:
+      '@pnp/common': 1.3.11
+      '@pnp/logging': 1.3.11
+      '@pnp/odata': 1.3.11_0735193bd073e5cc36fcb4261de894d9
+      '@pnp/sp': 1.3.11_97ef0e213a5999822e11d2e99b1ed457
+      tslib: 1.10.0
+    dev: false
+
+  /@pnp/sp-taxonomy/1.3.11_aeab9ef356b7306c5f0f03811326079a:
+    resolution: {integrity: sha512-shzCSjmOlr6mojCXJkfD8Xf9lJnhphq4Fj6mdUQGwpak+VIU+Fogf6AI0j6AReCKtKsKyqfud9X7C8tH07C3DA==}
+    peerDependencies:
+      '@pnp/common': 1.3.11
+      '@pnp/logging': 1.3.11
+      '@pnp/odata': 1.3.11
+      '@pnp/sp': 1.3.11
+      '@pnp/sp-clientsvc': 1.3.11
+    dependencies:
+      '@pnp/common': 1.3.11
+      '@pnp/logging': 1.3.11
+      '@pnp/odata': 1.3.11_0735193bd073e5cc36fcb4261de894d9
+      '@pnp/sp': 1.3.11_97ef0e213a5999822e11d2e99b1ed457
+      '@pnp/sp-clientsvc': 1.3.11_5ebb02c573206a4d27a8d882b140be71
+      tslib: 1.10.0
+    dev: false
+
+  /@pnp/sp/1.3.11_97ef0e213a5999822e11d2e99b1ed457:
+    resolution: {integrity: sha512-NjdeGe81aukiSPelSPjgAFRC1+SrNPTXvTdEqTH+Q1ZvgNtk8bdZp6K6xf9emfeM2qZDOu9GpKZpg0W/emq++g==}
+    peerDependencies:
+      '@pnp/common': 1.3.11
+      '@pnp/logging': 1.3.11
+      '@pnp/odata': 1.3.11
+    dependencies:
+      '@pnp/common': 1.3.11
+      '@pnp/logging': 1.3.11
+      '@pnp/odata': 1.3.11_0735193bd073e5cc36fcb4261de894d9
+      tslib: 1.10.0
+    dev: false
+
   /@pnp/sp/2.11.0:
     resolution: {integrity: sha512-Q/fhejKnP6ruw2EIy1IanpvP/B7NP/9sO2CosBwwwKSUZs061/M2x9PLNv74Vhk6bWp9ps0QkEvMbdX5IDp+Xw==}
     dependencies:
@@ -1595,6 +1666,40 @@ packages:
       '@pnp/logging': 2.11.0
       '@pnp/odata': 2.11.0
       tslib: 2.3.0
+    dev: false
+
+  /@pnp/spfx-property-controls/3.3.0_fb981ad68f3726d64f8884face7d1e15:
+    resolution: {integrity: sha512-jSoAVFBnClPOiuB3D4PrBu3g9oMxSxiHdzUW7dbtf2DcKn+273+ZsvMX2Fn94RjT9dzGVu+0ODF5s0SVzmBfIA==}
+    requiresBuild: true
+    dependencies:
+      '@microsoft/sp-core-library': 1.13.1
+      '@microsoft/sp-lodash-subset': 1.13.1
+      '@microsoft/sp-office-ui-fabric-core': 1.13.1
+      '@microsoft/sp-property-pane': 1.13.1_fb981ad68f3726d64f8884face7d1e15
+      '@microsoft/sp-webpart-base': 1.13.1_fb981ad68f3726d64f8884face7d1e15
+      '@pnp/common': 1.3.11
+      '@pnp/logging': 1.3.11
+      '@pnp/odata': 1.3.11_0735193bd073e5cc36fcb4261de894d9
+      '@pnp/sp': 1.3.11_97ef0e213a5999822e11d2e99b1ed457
+      '@pnp/sp-clientsvc': 1.3.11_5ebb02c573206a4d27a8d882b140be71
+      '@pnp/sp-taxonomy': 1.3.11_aeab9ef356b7306c5f0f03811326079a
+      '@pnp/telemetry-js': 2.0.0
+      '@uifabric/icons': 7.5.17_d71069ea3ea61a1f7cb5d86912297c7e
+      lodash.omit: 4.5.0
+      markdown-to-jsx: 6.11.4_react@16.13.1
+      office-ui-fabric-react: 7.174.1_d71069ea3ea61a1f7cb5d86912297c7e
+      react: 16.13.1
+      react-ace: 5.8.0_react-dom@16.13.1+react@16.13.1
+      react-dom: 16.13.1_react@16.13.1
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+    dev: false
+
+  /@pnp/telemetry-js/2.0.0:
+    resolution: {integrity: sha512-qFNm3mTerTnxgTR6c/4iMMt8EUKrQn5z0XG/IQtpNlp6m7KXRDFR87mQKeBVtSv2LhxGO0VNFndKJIibBw52zQ==}
+    dependencies:
+      whatwg-fetch: 2.0.4
     dev: false
 
   /@pnpm/error/1.4.0:
@@ -2393,6 +2498,19 @@ packages:
       tslib: 1.14.1
     dev: false
 
+  /@uifabric/icons/7.5.17_d71069ea3ea61a1f7cb5d86912297c7e:
+    resolution: {integrity: sha512-2S1kse0gtseTuV2r59iWukLxxoOJ6GgP2Yhxt9oxzaP9QubpYdxCUepvJmfPQQvvy4GELdykDUWQ6/hbzliJyw==}
+    dependencies:
+      '@uifabric/set-version': 7.0.24
+      '@uifabric/styling': 7.20.0_d71069ea3ea61a1f7cb5d86912297c7e
+      tslib: 1.14.1
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
+      - react
+      - react-dom
+    dev: false
+
   /@uifabric/icons/7.6.0_d71069ea3ea61a1f7cb5d86912297c7e:
     resolution: {integrity: sha512-Xx+CVMYOafJDijllYYkgE22lvKpKaodrB9XUgVSI77QveGcOV+x9z5FVa5CzwERb6Zjoafyj7q7SmH/EOi+AZw==}
     dependencies:
@@ -2692,6 +2810,11 @@ packages:
 
   /adal-angular/1.0.16:
     resolution: {integrity: sha1-4rwxvHEqr/ugU6pN1GvITrXSCQ8=}
+    engines: {node: '>=0.8.0'}
+    dev: false
+
+  /adal-angular/1.0.17:
+    resolution: {integrity: sha1-bpNuDkH5HTsqiOf/ypwvb29WLMQ=}
     engines: {node: '>=0.8.0'}
     dev: false
 
@@ -3382,6 +3505,10 @@ packages:
       balanced-match: 1.0.2
       concat-map: 0.0.1
     dev: true
+
+  /brace/0.11.1:
+    resolution: {integrity: sha1-SJb8ydVE7vRfS7dmDbMg07N5/lg=}
+    dev: false
 
   /braces/2.3.2:
     resolution: {integrity: sha512-aNdbnj9P8PjdXU4ybaWLK2IF3jc/EoDYbC7AazW6to3TRsfXxscC9UXOB5iDiEQrkyIbWp2SLQda4+QAa7nc3w==}
@@ -8287,7 +8414,6 @@ packages:
 
   /lodash.get/4.4.2:
     resolution: {integrity: sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=}
-    dev: true
 
   /lodash.isarguments/3.1.0:
     resolution: {integrity: sha1-L1c9hcaiQon/AGY7SRwdM4/zRYo=}
@@ -8299,7 +8425,6 @@ packages:
 
   /lodash.isequal/4.5.0:
     resolution: {integrity: sha1-QVxEePK8wwEgwizhDtMib30+GOA=}
-    dev: true
 
   /lodash.keys/3.1.2:
     resolution: {integrity: sha1-TbwEcrFWvlCgsoaFXRvQsMZWCYo=}
@@ -8316,6 +8441,10 @@ packages:
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
+
+  /lodash.omit/4.5.0:
+    resolution: {integrity: sha1-brGa5aHuHdnfC5aeZs4Lf6MLXmA=}
+    dev: false
 
   /lodash.restparam/3.6.1:
     resolution: {integrity: sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=}
@@ -8451,6 +8580,17 @@ packages:
     dependencies:
       object-visit: 1.0.1
     dev: true
+
+  /markdown-to-jsx/6.11.4_react@16.13.1:
+    resolution: {integrity: sha512-3lRCD5Sh+tfA52iGgfs/XZiw33f7fFX9Bn55aNnVNUd2GzLDkOWyKYYD8Yju2B1Vn+feiEdgJs8T6Tg0xNokPw==}
+    engines: {node: '>= 4'}
+    peerDependencies:
+      react: '>= 0.14.0'
+    dependencies:
+      prop-types: 15.8.1
+      react: 16.13.1
+      unquote: 1.1.1
+    dev: false
 
   /matchdep/2.0.0:
     resolution: {integrity: sha1-xvNINKDY28OzfCfui7yyfHd1WC4=}
@@ -10490,6 +10630,20 @@ packages:
 
   /raw-loader/0.5.1:
     resolution: {integrity: sha1-DD0L6u2KAclm2Xh793goElKpeao=}
+    dev: false
+
+  /react-ace/5.8.0_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha1-hy2e6LZkMA7Vq57axiNLvpCDaDY=}
+    peerDependencies:
+      react: ^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0
+      react-dom: ^0.13.0 || ^0.14.0 || ^15.0.1 || ^16.0.0
+    dependencies:
+      brace: 0.11.1
+      lodash.get: 4.4.2
+      lodash.isequal: 4.5.0
+      prop-types: 15.8.1
+      react: 16.13.1
+      react-dom: 16.13.1_react@16.13.1
     dev: false
 
   /react-dom/16.13.1_react@16.13.1:
@@ -12548,7 +12702,6 @@ packages:
 
   /unquote/1.1.1:
     resolution: {integrity: sha1-j97XMk7G6IoP+LkF58CYzcCG1UQ=}
-    dev: true
 
   /unset-value/1.0.0:
     resolution: {integrity: sha1-g3aHP30jNRef+x5vw6jtDfyKtVk=}
@@ -12953,6 +13106,10 @@ packages:
 
   /whatwg-fetch/2.0.3:
     resolution: {integrity: sha1-nITsLc9oGH/wC8ZOEnS0QhduHIQ=}
+    dev: false
+
+  /whatwg-fetch/2.0.4:
+    resolution: {integrity: sha512-dcQ1GWpOD/eEQ97k66aiEVpNnapVj90/+R+SXTPYGHpYBBypfKJEQjLrvMZ7YXbKm21gXd4NcuxUTjiv1YtLng==}
     dev: false
 
   /whatwg-fetch/3.6.2:

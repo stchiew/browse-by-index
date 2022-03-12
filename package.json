@@ -1,6 +1,6 @@
 {
   "name": "browse-by-index",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "main": "lib/index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "@microsoft/sp-property-pane": "1.13.1",
     "@microsoft/sp-webpart-base": "1.13.1",
     "@pnp/sp": "2.11.0",
+    "@pnp/spfx-property-controls": "3.3.0",
     "office-ui-fabric-react": "7.174.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"

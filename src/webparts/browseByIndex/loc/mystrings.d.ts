@@ -3,6 +3,8 @@ declare interface IBrowseByIndexWebPartStrings {
   BasicGroupName: string;
   ListnameFieldLabel: string;
   FieldnameFieldLabel: string;
+  AboutGroupName: string;
+  ManifestVersionLabel: string;
 }
 
 declare module 'BrowseByIndexWebPartStrings' {

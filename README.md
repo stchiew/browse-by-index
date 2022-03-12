@@ -22,15 +22,29 @@ File explorer view of a SharePoint document library. Based on [react-taxonomy-fi
 
 ## Version history
 
-| Version | Date           | Comments        |
-| ------- | -------------- | --------------- |
-| 1.0.0   | March 11, 2022 | Initial release |
+| Version | Date           | Comments          |
+| ------- | -------------- | ----------------- |
+| 1.0.1   | March 13, 2022 | First minor patch |
+| 1.0.0   | March 11, 2022 | Initial release   |
 
 ## Release features
+
+### 1.0.1
+
+- Resolve document link issue
+- Remove drag and drop between folders
+- Document title instead of file name
+- Version/About pane
 
 ### 1.0.0
 
 Exact copy of original.
+
+## TO DO
+
+- More document info on hover
+- change folder icons
+- filter documents to display
 
 ## References
 

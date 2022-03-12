@@ -4,5 +4,7 @@ define([], function () {
     BasicGroupName: "Group Name",
     ListnameFieldLabel: "Listname",
     FieldnameFieldLabel: "(Internal) Fieldname",
+    AboutGroupName: "About",
+    ManifestVersionLabel: "Version",
   };
 });

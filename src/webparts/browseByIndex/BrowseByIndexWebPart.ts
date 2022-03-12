@@ -6,6 +6,7 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-property-pane';
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
+import { PropertyPaneWebPartInformation } from '@pnp/spfx-property-controls/lib/PropertyPaneWebPartInformation';
 import { sp } from '@pnp/sp/presets/all';
 
 import * as strings from 'BrowseByIndexWebPartStrings';
@@ -63,6 +64,16 @@ export default class BrowseByIndexWebPart extends BaseClientSideWebPart<IBrowseB
                 }),
                 PropertyPaneTextField('fieldName', {
                   label: strings.FieldnameFieldLabel
+                })
+              ]
+            },
+            {
+              groupName: strings.AboutGroupName,
+              groupFields: [
+                PropertyPaneWebPartInformation({ description: `View by file explorer`, key: 'webPartInfoId' }),
+                PropertyPaneWebPartInformation({
+                  description: `${strings.ManifestVersionLabel} ${this.context.manifest.version}.0`,
+                  key: 'webPartInfoStaticId'
                 })
               ]
             }
