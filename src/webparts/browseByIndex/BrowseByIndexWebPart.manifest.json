@@ -21,7 +21,7 @@
         "default": "Other"
       },
       "title": {
-        "default": "BrowseByIndex"
+        "default": "Browse By Index"
       },
       "description": {
         "default": "File explorer view of Document library"

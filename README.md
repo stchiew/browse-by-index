@@ -34,7 +34,8 @@ File explorer view of a SharePoint document library. Based on [react-taxonomy-fi
 - Resolve document link issue
 - Remove drag and drop between folders
 - Document title instead of file name
-- Version/About pane
+- filter documents to display thru property pane
+
 
 ### 1.0.0
 
@@ -44,7 +45,8 @@ Exact copy of original.
 
 - More document info on hover
 - change folder icons
-- filter documents to display
+- Version/About pane
+
 
 ## References
 

@@ -18,15 +18,16 @@ export class SPService {
       .get();
     const files: IFileItem[] = [];
     items.forEach((i) => {
+      console.log("File properties");
       console.log(i);
       const nameparts = i.File.Name.split(".");
       const file: IFileItem = {
-        title: i.File.Name,
+        title: i.File.Title,
         extension: nameparts[nameparts.length - 1],
         id: i.Id,
         termGuid: [""],
         taxValue: [""],
-        url: i.File.LinkingUrl,
+        url: i.File.ServerRelativeUrl,
       };
       if (Array.isArray(i[this.fieldName])) {
         const termguids: string[] = [];
