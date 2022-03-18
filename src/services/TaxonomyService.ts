@@ -26,6 +26,8 @@ export class TaxonomyService {
       const tn = this.getTermnode(ti);
       termnodes.push(tn);
     });
+    console.log('TermNodes');
+    console.log(termnodes);
     return termnodes;
   }
 

@@ -10,7 +10,7 @@ export class SPService {
     this.fieldName = fieldname;
   }
 
-  public async getItems(termsetID: string): Promise<IFileItem[]> {
+  public async getItems(xxtermsetID: string): Promise<IFileItem[]> {
     const items: any[] = await sp.web.lists
       .getByTitle(this.listName)
       .items.select("Id", this.fieldName)

@@ -32,9 +32,8 @@ File explorer view of a SharePoint document library. Based on [react-taxonomy-fi
 ### 1.0.1
 
 - Resolve document link issue
-- Remove drag and drop between folders
+- Remove drag and drop between folders, a view-only UI
 - Document title instead of file name
-- filter documents to display thru property pane
 
 
 ### 1.0.0

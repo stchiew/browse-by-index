@@ -18,9 +18,9 @@ const tooltipProps: ITooltipProps = {
 const hostStyles: Partial<ITooltipHostStyles> = { root: { display: 'inline-block' } };
 
 export const FileLabel: React.FC<IFileLabelProps> = (props) => {
-  const drag = (ev) => {
+/*   const drag = (ev) => {
     ev.dataTransfer.setData("text/plain", JSON.stringify(props.file));
-  };
+  }; */
 
   return (
     <li className={styles.fileLabel}>
