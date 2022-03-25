@@ -6,6 +6,7 @@ export interface ITermLabelProps {
   selectedNode: string;
   renderFiles: (files: IFileItem[]) => void;
   resetChecked: (s: string) => void;
+  shownFiles:IFileItem[];
   //addTerm: (file: IFileItem, newValue: string) => void;
   //replaceTerm: (file: IFileItem, newValue: string) => void;
   //copyFile: (file: IFileItem, newValue: string) => void;

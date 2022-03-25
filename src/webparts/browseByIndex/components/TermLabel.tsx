@@ -1,14 +1,17 @@
-import * as React from 'react';
-import styles from './TermLabel.module.scss';
+import * as React from "react";
+import styles from "./TermLabel.module.scss";
 //import { ContextualMenu, IContextualMenuItem } from "office-ui-fabric-react/lib/ContextualMenu";
-import { Icon } from 'office-ui-fabric-react/lib/Icon';
+import { Icon } from "office-ui-fabric-react/lib/Icon";
 import { ITermLabelProps } from "./ITermLabelProps";
+import { FileLabel } from "./FileLabel";
 //import { IFileItem } from '../../../model/IFileItem';
 
 export const TermLabel: React.FC<ITermLabelProps> = (props) => {
   const linkRef = React.useRef(null);
-  const [showChildren, setShowChildren] = React.useState<boolean>(true);
-  const [countDocuments, setCountDocuments] = React.useState<number>(props.node.childDocuments);
+  const [showChildren, setShowChildren] = React.useState<boolean>(false);
+  const [countDocuments, setCountDocuments] = React.useState<number>(
+    props.node.childDocuments
+  );
   //const [showContextualMenu, setShowContextualMenu] = React.useState<boolean>(false);
   //const [droppedFile, setDroppedFile] = React.useState<IFileItem>();
 
@@ -21,7 +24,7 @@ export const TermLabel: React.FC<ITermLabelProps> = (props) => {
     props.renderFiles(props.node.subFiles);
   };
 
-/*   const hideContextualMenu = () => {
+  /*   const hideContextualMenu = () => {
     setShowContextualMenu(false);
   }; */
 
@@ -68,7 +71,7 @@ export const TermLabel: React.FC<ITermLabelProps> = (props) => {
     props.addTerm(file, newTaxonomyValue);
   }; */
 
-/*   const copyWithNewTerm = (file: IFileItem) => {
+  /*   const copyWithNewTerm = (file: IFileItem) => {
     const newTaxonomyValue = `${props.node.name}|${props.node.guid}`;
     props.copyFile(file, newTaxonomyValue);
   };
@@ -78,8 +81,16 @@ export const TermLabel: React.FC<ITermLabelProps> = (props) => {
     props.uploadFile(file, newTaxonomyValue);
   }; */
 
-  const currentExpandIcon = showChildren ? <Icon className={styles.icon} iconName="ChevronDown" onClick={toggleIcon} /> : <Icon className={styles.icon} iconName="ChevronRight" onClick={toggleIcon} />;
-/*   const menuItems: IContextualMenuItem[] = [
+  const currentExpandIcon = showChildren ? (
+    <Icon className={styles.icon} iconName="ChevronDown" onClick={toggleIcon} />
+  ) : (
+    <Icon
+      className={styles.icon}
+      iconName="ChevronRight"
+      onClick={toggleIcon}
+    />
+  );
+  /*   const menuItems: IContextualMenuItem[] = [
     {
       key: 'copyItem',
       text: 'Create new file with term (Copy)',
@@ -106,33 +117,72 @@ export const TermLabel: React.FC<ITermLabelProps> = (props) => {
   }, [props.node.subFiles]);
 
   return (
-    <li className={styles.termLabel}>
-      <div ref={linkRef} className={`${styles.label} ${props.selectedNode === props.node.guid ? styles.checkedLabel : ""}`} onClick={nodeSelected} >
-        <label>
-          {props.node.children.length > 0 ? currentExpandIcon : <i className={styles.emptyicon}>&nbsp;</i>}
-          <Icon className={styles.icon} iconName="FabricFolder" />
-          {props.node.name}{countDocuments > 0 ? <span className={styles.fileCount}>{countDocuments}</span> : ""}
-        </label>
-      </div>
-{/*       <ContextualMenu
+    <div>
+      <li className={styles.termLabel}>
+        <div
+          ref={linkRef}
+          className={`${styles.label} ${
+            props.selectedNode === props.node.guid ? styles.checkedLabel : ""
+          }`}
+          onClick={nodeSelected}
+        >
+          <label>
+            {props.node.children.length > 0 ? (
+              currentExpandIcon
+            ) : (
+              <i className={styles.emptyicon}>&nbsp;</i>
+            )}
+            <Icon className={styles.icon} iconName="FabricFolder" />
+            {props.node.name}
+            {countDocuments > 0 ? (
+              <span className={styles.fileCount}>{countDocuments}</span>
+            ) : (
+              ""
+            )}
+          </label>
+        </div>
+        {/*       <ContextualMenu
         items={menuItems}
         hidden={!showContextualMenu}
         target={linkRef}
         onItemClick={hideContextualMenu}
         onDismiss={hideContextualMenu}
       /> */}
-      {showChildren && <ul className={`${props.node.children.length > 0 ? styles.liFilled : ""}`}>
-        {props.node.children.map(nc => {
-          return <TermLabel node={nc}
-            renderFiles={props.renderFiles}
-            resetChecked={props.resetChecked}
-            selectedNode={props.selectedNode} />;
-            //addTerm={props.addTerm}
-            //replaceTerm={props.replaceTerm}
-            //copyFile={props.copyFile}
-            //uploadFile={props.uploadFile} />;
-        })}
-      </ul>}
-    </li>
+        {showChildren && (
+          <ul
+            className={`${
+              props.node.children.length > 0 ? styles.liFilled : ""
+            }`}
+          >
+            {props.node.children.map((nc) => {
+              return (
+                <TermLabel
+                  node={nc}
+                  renderFiles={props.renderFiles}
+                  resetChecked={props.resetChecked}
+                  selectedNode={props.selectedNode}
+                  shownFiles={props.shownFiles}
+                />
+              );
+              //addTerm={props.addTerm}
+              //replaceTerm={props.replaceTerm}
+              //copyFile={props.copyFile}
+              //uploadFile={props.uploadFile} />;
+            })}
+          </ul>
+        )}
+      </li>
+      <ul>
+        {props.shownFiles.length > 0 &&
+          props.selectedNode === props.node.guid &&
+          props.shownFiles.map((f) => {
+            return (
+              <div>
+                <FileLabel file={f} />
+              </div>
+            );
+          })}
+      </ul>
+    </div>
   );
 };
