@@ -10,7 +10,8 @@ import { PropertyPaneWebPartInformation } from '@pnp/spfx-property-controls/lib/
 import { sp } from '@pnp/sp/presets/all';
 
 import * as strings from 'BrowseByIndexWebPartStrings';
-import { BrowseByIndex } from './components/BrowseByIndex';
+//import { BrowseByIndex } from './components/BrowseByIndex';
+import { Debug } from './components/Debug';
 import { IBrowseByIndexProps } from './components/IBrowseByIndexProps';
 
 export interface IBrowseByIndexWebPartProps {
@@ -30,7 +31,8 @@ export default class BrowseByIndexWebPart extends BaseClientSideWebPart<IBrowseB
 
   public render(): void {
     const element: React.ReactElement<IBrowseByIndexProps> = React.createElement(
-      BrowseByIndex,
+      //BrowseByIndex,
+      Debug,
       {
         fieldName: this.properties.fieldName,
         listName: this.properties.listName

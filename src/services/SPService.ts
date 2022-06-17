@@ -1,5 +1,6 @@
 import { sp } from "@pnp/sp";
 import { IFileItem } from "../model/IFileItem";
+import { IFileItemChoice } from "../model/IFileItemChoice";
 
 export class SPService {
   private listName: string;
@@ -8,6 +9,42 @@ export class SPService {
   constructor(listname: string, fieldname: string) {
     this.listName = listname;
     this.fieldName = fieldname;
+  }
+
+  public async getItemsByChoice(): Promise<IFileItemChoice[]> {
+
+    const items: any[] = await sp.web.lists
+      .getByTitle(this.listName)
+      .items.select("Id", this.fieldName)
+      .expand("File")
+      .get();
+    const files: IFileItemChoice[] = [];
+    items.forEach((i) => {
+      console.log("File properties");
+      console.log(i);
+      const nameparts = i.File.Name.split(".");
+      const file: IFileItemChoice = {
+        title: i.File.Title,
+        extension: nameparts[nameparts.length - 1],
+        id: i.Id,
+        choiceValue: [""],
+        url: i.File.ServerRelativeUrl
+      }
+      if (Array.isArray(i[this.fieldName])) {
+        const choicevalues: string[] = [];
+        i[this.fieldName].forEach((f) => {
+          choicevalues.push(f.ChoiceValue);
+        });
+        file.choiceValue = choicevalues;
+      } else {
+
+        file.choiceValue = i[this.fieldName]
+          ? [i[this.fieldName]]
+          : [""];
+      }
+      files.push(file);
+    });
+    return files;
   }
 
   public async getItems(xxtermsetID: string): Promise<IFileItem[]> {

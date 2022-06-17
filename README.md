@@ -29,12 +29,15 @@ File explorer view of a SharePoint document library. Based on [react-taxonomy-fi
 
 ## Release features
 
+## This branch feature-003
+
+Using Business Process Choice field instead of term set
+
 ### 1.0.1
 
 - Resolve document link issue
 - Remove drag and drop between folders, a view-only UI
 - Document title instead of file name
-
 
 ### 1.0.0
 
@@ -45,7 +48,6 @@ Exact copy of original.
 - More document info on hover
 - change folder icons
 - Version/About pane
-
 
 ## References
 
